@@ -10,6 +10,7 @@ namespace DQ2
 	class DataContext
 	{
 		public ObservableCollection<Charactor> Party { get; set; } = new ObservableCollection<Charactor>();
+		public ObservableCollection<Place> Places { get; set; } = new ObservableCollection<Place>();
 
 		public DataContext()
 		{
@@ -20,6 +21,11 @@ namespace DQ2
 				if (saveData.ReadNumber(address, 2) == 0) break;
 				Party.Add(new Charactor(address));
 				address += 0x3C;
+			}
+
+			foreach (var place in Info.Instance().Places)
+			{
+				Places.Add(new Place(place.Value) { Name = place.Name });
 			}
 		}
 
