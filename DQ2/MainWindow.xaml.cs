@@ -79,6 +79,24 @@ namespace DQ2
 			Init();
 		}
 
+		private void MenuItemPlaceCheck_Click(object sender, RoutedEventArgs e)
+		{
+			var data = DataContext as DataContext;
+			foreach (var place in data.Places)
+			{
+				place.Visite = true;
+			}
+		}
+
+		private void MenuItemPlaceUnCheck_Click(object sender, RoutedEventArgs e)
+		{
+			var data = DataContext as DataContext;
+			foreach (var place in data.Places)
+			{
+				place.Visite = false;
+			}
+		}
+
 		private void ButtonCharactorItemChange_Click(object sender, RoutedEventArgs e)
 		{
 			CharactorItem item = (sender as Button)?.DataContext as CharactorItem;

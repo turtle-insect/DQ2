@@ -1,8 +1,9 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace DQ2
 {
-	class Place
+	class Place : INotifyPropertyChanged
 	{
 		private readonly uint mAddress;
 		public Place(uint address)
@@ -22,7 +23,10 @@ namespace DQ2
 			set
 			{
 				SaveData.Instance().WriteNumber(mAddress, 1, value ? 1U : 0);
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Visite)));
 			}
 		}
+
+		public event PropertyChangedEventHandler PropertyChanged;
 	}
 }
