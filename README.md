@@ -1,3 +1,5 @@
+![DL Count](https://img.shields.io/github/downloads/turtle-insect/DQ2/total.svg)
+
 # 概要
 3DS ドラゴンクエスト2のセーブデータ編集Tool
 
